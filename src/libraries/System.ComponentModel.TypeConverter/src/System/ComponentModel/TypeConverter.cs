@@ -192,7 +192,7 @@ namespace System.ComponentModel
         protected Exception GetConvertFromException(object? value)
         {
             string? valueTypeName = value == null ? (SR.UsingResourceKeys() ? "(null)" : SR.Null) : value.GetType().FullName;
-            throw new NotSupportedException(SR.Format(SR.ConvertFromException, GetType().Name, valueTypeName));
+            return new NotSupportedException(SR.Format(SR.ConvertFromException, GetType().Name, valueTypeName));
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace System.ComponentModel
         protected Exception GetConvertToException(object? value, Type destinationType)
         {
             string? valueTypeName = value == null ? (SR.UsingResourceKeys() ? "(null)" : SR.Null) : value.GetType().FullName;
-            throw new NotSupportedException(SR.Format(SR.ConvertToException, GetType().Name, valueTypeName, destinationType.FullName));
+            return new NotSupportedException(SR.Format(SR.ConvertToException, GetType().Name, valueTypeName, destinationType.FullName));
         }
 
         /// <summary>
